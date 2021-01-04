@@ -16,11 +16,11 @@ app.get('/', (req, res) => {
     );
     res.send(html)
   });
-})
+});
 
-app.get('/love', (req, res) => {
-  res.send('love!!')
-})
+app.get('/page/:pageId', (req, res) => {
+  res.send(req.params);
+});
 //같은 의미
 // app.get('/', function(req, res){
 //   return res.send('Hello World!!')
@@ -30,7 +30,7 @@ app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
 
-/*
+/* 기본 node
 var http = require('http');
 var fs = require('fs');
 var url = require('url');
