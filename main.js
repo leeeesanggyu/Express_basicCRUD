@@ -7,9 +7,11 @@ var bodyParser = require('body-parser');
 var sanitizeHtml = require('sanitize-html'); //보안, 내용 세탁
 var template = require('./lib/template.js');
 var compression = require('compression') //압축
+var helmet = require('helmet') //보안
 
 const port = 3000;
  
+app.use(express.static('public')); //보안
 app.use(express.static('public')) //정적인 파일 폴더위치
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(compression()); //압축
