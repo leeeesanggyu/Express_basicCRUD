@@ -5,6 +5,7 @@ var fs = require('fs');
 var sanitizeHtml = require('sanitize-html'); //보안, 내용 세탁
 var template = require('../lib/template.js');
 
+
 router.get('/create', (req, res) => {
     var title = 'WEB - create';
     var list = template.list(req.list);
