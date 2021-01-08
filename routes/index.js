@@ -1,6 +1,7 @@
 var express = require('express')
 var router = express.Router()
 var template = require('../lib/template.js');
+
 var mysql = require('mysql');
 var db = mysql.createConnection({
   host     : 'localhost',

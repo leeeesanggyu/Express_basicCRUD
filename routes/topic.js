@@ -34,16 +34,20 @@ router.get('/create', (req, res) => {
    
   router.get('/:pageId', (req, res) => { 
       var filteredId = path.parse(req.params.pageId).base;
-      fs.readFile(`data/${filteredId}`, 'utf8', function(err, description){
+      console.log(filteredId);
+      fs.readFile(`data/${filteredId}`, 'utf8', (err, description) => {
         if(err){
           next(err);
         }else{
           var title = req.params.pageId;
+          console.log(title);
           var sanitizedTitle = sanitizeHtml(title);
           var sanitizedDescription = sanitizeHtml(description, {
             allowedTags:['h1']
           });
+          console.log(req.list);
           var list = template.list(req.list);
+          console.log(list);
           var html = template.HTML(sanitizedTitle, list,
             `<h2>${sanitizedTitle}</h2>${sanitizedDescription}`,
             ` <a href="/topic/create">create</a>
@@ -78,7 +82,7 @@ router.get('/create', (req, res) => {
           `,
           `<a href="/topic/create">create</a> <a href="/topic/update/${title}">update</a>`
         );
-        res.send(html);
+        response.send(html);
       });
     });
    

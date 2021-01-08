@@ -14,6 +14,7 @@ app.use(express.static('public')) //정적인 파일 폴더위치
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(compression()); //압축
 app.get('*', (req, res, next) => {
+
   fs.readdir('./data', (error, filelist) => {
     req.list = filelist;
     next();
