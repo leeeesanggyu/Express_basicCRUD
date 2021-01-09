@@ -9,7 +9,7 @@ var db = mysql.createConnection({
   password : '',
   database : 'nodeexam'
 });
-  db.connect();
+db.connect();
 
 router.get('/', (req, res) => { 
   db.query(`SELECT * FROM topic`, (error, topic, fields) => {
