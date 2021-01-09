@@ -7,7 +7,7 @@ var helmet = require('helmet') //보안
 var indexRouter = require('./routes/index.js'); //라우터 분리
 var topicRouter = require('./routes/topic.js'); //라우터 분리
 
-const port = 3000;
+const port = 4000;
  
 app.use(express.static('helmet')); //보안
 app.use(express.static('public')) //정적인 파일 폴더위치

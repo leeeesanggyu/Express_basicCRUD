@@ -24,6 +24,7 @@ router.get('/create', (req, res) => {
    
   router.post('/create_process', (req, res) => {
     var post = req.body;
+    console.log(post);
     var title = post.title;
     var description = post.description;
     fs.writeFile(`data/${title}`, description, 'utf8', function(err){
